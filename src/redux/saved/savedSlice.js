@@ -5,7 +5,23 @@ const getSavedFromLocalStorage = () => {
   if (storedHistory) {
     return JSON.parse(storedHistory);
   }
-  return [];
+  return [
+    {
+      query: "SELECT * FROM Products;",
+      title: "Normal Query",
+      id: 94359.0023263187,
+    },
+    {
+      query: "SELECT * from Large_table;",
+      title: "Query with large data",
+      id: 51173.45928624022,
+    },
+    {
+      query: "SELECT * from WRONG_TABLE;",
+      title: "Query with error",
+      id: 75582.0935343729,
+    },
+  ];
 };
 const savedSlice = createSlice({
   name: "saved",
