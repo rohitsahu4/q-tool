@@ -5,7 +5,8 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import PropTypes from "prop-types";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
+import useKeyboardShortcut from "use-keyboard-shortcut";
 
 import "./saved.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +17,7 @@ const Saved = ({ onSelectedQuery }) => {
   const dispatch = useDispatch();
   const savedQuerries = useSelector(getSaved);
   const [searchTerm, setSearchTerm] = useState("");
+  const searchRef = useRef();
 
   const filteredQuerries = useMemo(() => {
     return savedQuerries.filter((query) => {
@@ -26,6 +28,13 @@ const Saved = ({ onSelectedQuery }) => {
     });
   }, [savedQuerries, searchTerm]);
   onSelectedQuery;
+  useKeyboardShortcut(
+    ["Control", "f"],
+    () => {
+      if (!onSelectedQuery) searchRef.current.focus();
+    },
+    {}
+  );
 
   const onRemoveQuery = (query) => {
     dispatch(removedQuery({ id: query.id }));
@@ -42,6 +51,7 @@ const Saved = ({ onSelectedQuery }) => {
       <div className="saved__search">
         <Input
           placeholder="Search querries"
+          ref={searchRef}
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}

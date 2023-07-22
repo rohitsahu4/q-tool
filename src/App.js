@@ -1,5 +1,5 @@
 import { Button, Layout, Tooltip } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import { MenuOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import Sidebar from "./components/Sidebar";
 import Querries from "./components/Querries";
 
@@ -36,6 +36,18 @@ function App() {
             </Tooltip>
           )}
           <h1 className="homepage__title">Query tool</h1>
+          <Tooltip
+            title={
+              <div>
+                <strong> Control + f </strong>: Find <br />
+                <strong> Tab + Right/Left Arrrow </strong>: Switch Tabs
+              </div>
+            }
+          >
+            <h5 className="homepage__keyboard-shortcuts">
+              <InfoCircleOutlined /> Keyboard shortcuts
+            </h5>
+          </Tooltip>
         </Header>
         <Querries />
       </Layout>

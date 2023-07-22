@@ -4,11 +4,15 @@ import { Content } from "antd/es/layout/layout";
 import "./querries.scss";
 import Query from "./Query";
 import { useDispatch, useSelector } from "react-redux";
+import useKeyboardShortcut from "use-keyboard-shortcut";
+
 import {
   changedTab,
   getActiveTabKey,
   getAllTabs,
   newTabAdded,
+  nextTab,
+  previousTab,
   removedTab,
 } from "../redux/tabs/tabslice";
 
@@ -22,6 +26,13 @@ const Querries = () => {
   const add = () => {
     dispatch(newTabAdded({}));
   };
+  useKeyboardShortcut(["Tab", "ArrowRight"], () => {
+    dispatch(nextTab());
+  });
+  useKeyboardShortcut(["Tab", "ArrowLeft"], () => {
+    dispatch(previousTab());
+  });
+
   const remove = (targetKey) => {
     dispatch(removedTab(targetKey));
   };

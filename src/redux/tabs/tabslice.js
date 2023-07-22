@@ -35,6 +35,22 @@ export const tabslice = createSlice({
   },
   reducers: {
     newTabAdded: createNewTab,
+    nextTab: (state) => {
+      const currentIndex = state.tabs.findIndex(
+        ({ id }) => id === state.activeTabKey
+      );
+      const nextIndex =
+        currentIndex === state.tabs.length - 1 ? 0 : currentIndex + 1;
+      state.activeTabKey = state.tabs[nextIndex].id;
+    },
+    previousTab: (state) => {
+      const currentIndex = state.tabs.findIndex(
+        ({ id }) => id === state.activeTabKey
+      );
+      const prevIndex =
+        currentIndex === 0 ? state.tabs.length - 1 : currentIndex - 1;
+      state.activeTabKey = state.tabs[prevIndex].id;
+    },
     changedTab: (state, { payload }) => {
       state.activeTabKey = payload;
     },
@@ -68,8 +84,14 @@ export const tabslice = createSlice({
   },
 });
 
-export const { newTabAdded, changedTab, removedTab, updateTab } =
-  tabslice.actions;
+export const {
+  newTabAdded,
+  changedTab,
+  removedTab,
+  updateTab,
+  nextTab,
+  previousTab,
+} = tabslice.actions;
 
 export default tabslice.reducer;
 

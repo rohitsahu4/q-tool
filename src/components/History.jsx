@@ -6,9 +6,11 @@ import {
   ClockCircleOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 
 import "./history.scss";
+import useKeyboardShortcut from "use-keyboard-shortcut";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getHistory } from "../redux/history/historySlice";
 import { saveModalOpened } from "../redux/saved/savedSlice";
@@ -16,8 +18,12 @@ import { openPreffiledTab } from "../redux/querries/querySlice";
 
 const History = () => {
   const dispatch = useDispatch();
+  const searchRef = useRef();
   const history = useSelector((state) => getHistory(state));
   const [searchTerm, setSearchTerm] = useState("");
+
+  useKeyboardShortcut(["Control", "f"], () => searchRef.current.focus(), {});
+
   const filteredQuerries = useMemo(() => {
     return history.filter((query) => {
       return (
@@ -37,6 +43,7 @@ const History = () => {
       <div className="history__search">
         <Input
           placeholder="Search querries"
+          ref={searchRef}
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
