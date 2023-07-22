@@ -1,0 +1,15 @@
+.result {
+  padding: 0 16px 16px 16px;
+  h3 {
+    font-size: 18px;
+    margin: 0 0 16px 0;
+  }
+  &__loader {
+    margin: 20px 0;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+}

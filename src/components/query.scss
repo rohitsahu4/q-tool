@@ -1,0 +1,8 @@
+.query {
+  height: calc(100vh - 110px);
+  width: 100%;
+  overflow: auto;
+  &__divider {
+    margin: 12px 0;
+  }
+}

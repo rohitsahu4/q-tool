@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, Layout, Tooltip } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import Sidebar from "./components/Sidebar";
+import Querries from "./components/Querries";
+
+import "./App.scss";
+import { Header } from "antd/es/layout/layout";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getIsSidebarOpen,
+  sidebarVisibilityChanged,
+} from "./redux/querries/querySlice";
+import SaveModal from "./components/SaveModal";
 
 function App() {
+  const isSidebarOpen = useSelector(getIsSidebarOpen);
+  const dispatch = useDispatch();
+  const openSidebar = () => {
+    dispatch(sidebarVisibilityChanged(true));
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="homepage">
+      <SaveModal />
+      <Sidebar />
+      <Layout>
+        <Header className="homepage__header">
+          {!isSidebarOpen && (
+            <Tooltip title="Open sidebar">
+              <Button
+                icon={<MenuOutlined />}
+                size="large"
+                type="link"
+                aria-label="open sidebar"
+                onClick={openSidebar}
+              />
+            </Tooltip>
+          )}
+          <h1 className="homepage__title">Query tool</h1>
+        </Header>
+        <Querries />
+      </Layout>
+    </Layout>
   );
 }
 

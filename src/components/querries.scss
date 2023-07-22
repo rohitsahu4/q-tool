@@ -1,0 +1,16 @@
+.querries {
+  height: 100%;
+  background: #fff;
+  .ant-tabs-tab,
+  .ant-tabs-nav-add {
+    border-radius: 0 !important;
+  }
+  .ant-tabs-nav {
+    margin-top: 8px;
+  }
+  .ant-tabs-nav-list {
+    &:first-child {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.homepage {
+  height: 100vh;
+  &__content {
+    padding: 16px;
+    height: 100%;
+  }
+  &__header {
+    background: #ededed;
+    padding: 4px;
+    height: 45px;
+    display: flex;
+  }
+  &__title {
+    margin: 8px;
+    line-height: 1;
+    font-size: 20px;
+    height: unset;
+  }
+}

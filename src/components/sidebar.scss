@@ -1,0 +1,39 @@
+.sidebar {
+  width: 400px;
+  background: #fff !important;
+  border-right: 1px solid #e1e1e1;
+  .ant-tabs-nav {
+    background: #ededed;
+    margin-bottom: 0px;
+  }
+  .ant-layout-sider-children {
+    background: #fff;
+  }
+  &__close-button {
+    position: absolute;
+    border-radius: 0;
+    height: unset;
+    top: 0;
+    right: 0;
+    padding: 11px;
+    border-left: 1px solid #f0f0f0;
+  }
+  &__title {
+    font-size: 20px;
+    margin: 12px;
+    margin-right: 0;
+  }
+  .ant-layout-sider-trigger {
+    display: none;
+  }
+  .ant-tabs-tab {
+    padding: 12px;
+  }
+  .history,
+  .saved {
+    .ant-list {
+      height: calc(100vh - 100px);
+      overflow: auto;
+    }
+  }
+}
