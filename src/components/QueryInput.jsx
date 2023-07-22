@@ -66,7 +66,7 @@ const QueryInput = ({ id, title, preffilledQuery }) => {
           autoComplete="off"
         >
           <Title level={3} className="">
-            Enter you Query
+            Enter your Query
           </Title>
           <Form.Item
             label="Query"
