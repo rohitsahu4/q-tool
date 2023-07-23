@@ -35,6 +35,6 @@ React with
 **Page load time**:  0.9s , measured using [uptrends speed test](https://www.uptrends.com/tools/website-speed-test) after deployment.
 
 #### Optimisations: 
-1. Used Webpack bundle analyzer to analyze webpack bundle size. And made sure that no unused code is present of the bundle
+1. Used Webpack bundle analyzer to analyze webpack bundle size. And made sure that no unused code is present in the bundle
 	![Bundle snapshot](https://i.imgur.com/V4XHa73.png)
 2. Memoised large calculations using useMemo and reselect.
