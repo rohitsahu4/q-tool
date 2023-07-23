@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Query - tool 
+URL:  https://q-tool.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ## Overview
+  Query tool is a lightweight yet powerful tool to run and view query results from your web browser.
 
-## Available Scripts
+ ![Tool screen shot](https://i.imgur.com/khfE1n3.png)
 
-In the project directory, you can run:
+This tool empowers users with productivity-boosting features while maintaining a user-friendly and straightforward interface.
+### Features:
+  
+This tool simplifies productivity with:
+1.  Queries run in **different tabs** for quick context switching. 
+2.  Automatic recording of query runs in the **history**.
+3. **Download JSON/CSV** : incase you need the raw data.
+4.  **Saving favourite queries** for quick access on a new tab or sidebar.
+5. **Keyboard shortcuts** for increased speed; 
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Key | Action  |
+|--|--|
+|Control + F  | Find |
+|Tab + Right/Left Arrow  | Switch tabs |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Framework and packages used
+React with 
+1. Antd: component library.
+2. Redux and redux toolkit: State management. 
+3. use-keyboard-shortcut: lightweight hook for capturing keyboard shortcuts.
+4. node-sass: to compile scss
+5. Webpack bundle analyser : to analyse bundle size.
 
-### `yarn test`
+### Performance and optimizations:
+**Page load time**:  0.9s , measured using [uptrends speed test](https://www.uptrends.com/tools/website-speed-test) after deployment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Optimisations: 
+1. Used Webpack bundle analyzer to analyze webpack bundle size. And made sure that no unused code is present of the bundle
+	![Bundle snapshot](https://i.imgur.com/V4XHa73.png)
+2. Memoised large calculations using useMemo and reselect.
