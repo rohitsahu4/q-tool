@@ -14,7 +14,8 @@ This tool simplifies productivity with:
 2.  Automatic recording of query runs in the **history**.
 3. **Download JSON/CSV** : incase you need the raw data.
 4.  **Saving favourite queries** for quick access on a new tab or sidebar.
-5. **Keyboard shortcuts** for increased speed; 
+5.  **Locally saved history** and saved items, we wont forget your saved items.
+6. **Keyboard shortcuts** for increased speed; 
 
 
 | Key | Action  |
