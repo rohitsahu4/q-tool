@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getHistory } from "../redux/history/historySlice";
 import { saveModalOpened } from "../redux/saved/savedSlice";
 import { openPreffiledTab } from "../redux/querries/querySlice";
+import Copy from "./Copy";
 
 const History = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,9 @@ const History = () => {
           const hasTitle = !!query.title;
           const description = (
             <div>
-              <em>{query.query}</em>
+              <em>
+                <Copy text={query.query} />
+              </em>
               <div>
                 <FieldTimeOutlined />
                 &nbsp; {parseInt(query.timeTaken)}ms &nbsp;|&nbsp;

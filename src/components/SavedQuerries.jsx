@@ -12,6 +12,7 @@ import "./saved.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getSaved, removedQuery } from "../redux/saved/savedSlice";
 import { openPreffiledTab } from "../redux/querries/querySlice";
+import Copy from "./Copy";
 
 const Saved = ({ onSelectedQuery }) => {
   const dispatch = useDispatch();
@@ -27,7 +28,6 @@ const Saved = ({ onSelectedQuery }) => {
       );
     });
   }, [savedQuerries, searchTerm]);
-  onSelectedQuery;
   useKeyboardShortcut(
     ["Control", "f"],
     () => {
@@ -65,7 +65,9 @@ const Saved = ({ onSelectedQuery }) => {
         renderItem={(query) => {
           const description = (
             <div>
-              <em>{query.query}</em>
+              <em>
+                <Copy text={query.query} />
+              </em>
             </div>
           );
           return (
